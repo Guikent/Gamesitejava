@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GameStore - Bem-vindo</title>
+    <style>
+        body {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Efeito de partículas/fundo animado sutil */
+        body::before {
+            content: "🎮 🕹️ 👾 🚀 ⚡ 🎲";
+            position: absolute;
+            font-size: 50px;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            text-align: center;
+            width: 320px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 1;
+        }
+
+        h1 { color: #38bdf8; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 2px; }
+
+        input {
+            width: 100%; padding: 14px; margin-bottom: 15px; border-radius: 10px;
+            border: 1px solid #334155; background: #0f172a; color: white;
+            box-sizing: border-box; transition: 0.3s;
+        }
+
+        input:focus { border-color: #38bdf8; outline: none; box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+
+        button {
+            width: 100%; padding: 14px; background: #38bdf8; border: none;
+            border-radius: 10px; color: #0f172a; font-weight: bold;
+            cursor: pointer; transition: 0.3s; text-transform: uppercase;
+        }
+
+        button:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4); }
+
+        a { color: #94a3b8; text-decoration: none; font-size: 14px; margin-top: 15px; display: inline-block; }
+        a:hover { color: #38bdf8; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>GameStore 🕹️</h1>
+    <form th:action="@{/cadastrar-usuario}" th:object="${usuario}" method="post">
+        <input type="text" th:field="*{login}" placeholder="👤 Nome de usuário" required />
+        <input type="password" th:field="*{senha}" placeholder="🔒 Senha" required />
+        <button type="submit">Criar Conta 🚀</button>
+    </form>
+    <br>
+    <a href="/login">Já possui conta? Faça Login</a>
+</div>
+
+</body>
+</html>>

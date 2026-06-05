@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameStore - Autenticação</title>
+    <style>
+        *{ margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
+        body{ background: linear-gradient(135deg,#0f172a,#1e293b); min-height:100vh; color:white; display:flex; justify-content:center; align-items:center; }
+        .box { background:#111827; padding:40px; border-radius:20px; box-shadow:0 15px 40px rgba(0,0,0,.5); width:100%; max-width:400px; text-align:center; }
+        h2 { margin-bottom: 25px; color: #38bdf8; }
+        .form-group { display:flex; flex-direction:column; text-align:left; margin-bottom:15px; }
+        label { margin-bottom:5px; font-size:14px; color:#cbd5e1; }
+        input { padding:12px; border:none; border-radius:8px; background:#1f2937; color:white; font-size:15px; }
+        input:focus { outline:2px solid #38bdf8; }
+        .error { color: #f87171; font-size: 14px; margin-bottom: 15px; }
+        .btn { width:100%; padding:12px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; font-size:16px; margin-top:10px; }
+        .btn-login { background:#38bdf8; color:black; }
+        .btn-cadastro { background:#22c55e; color:white; margin-top: 15px; }
+        hr { border: 0; height: 1px; background: #334155; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Área do Cliente</h2>
+
+    <p class="error" th:if="${erro}" th:text="${erro}"></p>
+
+    <form th:action="@{/logar}" method="POST">
+        <div class="form-group">
+            <label>Usuário</label>
+            <input type="text" name="username" placeholder="Seu usuário" required>
+        </div>
+        <div class="form-group">
+            <label>Senha</label>
+            <input type="password" name="senha" placeholder="Sua senha" required>
+        </div>
+        <button type="submit" class="btn btn-login">Entrar na Conta</button>
+    </form>
+
+    <hr>
+    <p style="font-size: 14px; color: #94a3b8;">Não tem conta? Cadastre-se abaixo:</p>
+
+    <form th:action="@{/cadastrar-usuario}" method="POST">
+        <div class="form-group" style="margin-top: 10px;">
+            <input type="text" name="username" placeholder="Escolha um usuário" required>
+        </div>
+        <div class="form-group">
+            <input type="password" name="senha" placeholder="Escolha uma senha" required>
+        </div>
+        <button type="submit" class="btn btn-cadastro">Criar Nova Conta</button>
+    </form>
+</div>
+
+</body>
+</html>
