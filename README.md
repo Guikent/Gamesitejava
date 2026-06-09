@@ -176,7 +176,7 @@ Essas classes modelam informações essenciais para o funcionamento da aplicaç�
 
 * João Guilherme Gonzaga da Silva
 * Victor Moura Matos
-* Matheus Medeiros Souza Alves
+* Matheus Medeiros de Souza Alves
 
 ---
 
